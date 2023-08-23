@@ -36,7 +36,7 @@ class AngleOfArrival:
         self.c = 17.1
         self.hb = 30
         self.d0 = 100
-        self.f = 1.89e9
+        self.f = 1.8e9
         self.C_VAL = 3e8
         self.power = 20
         self.A_VAL = 20 * log10(4 * pi * self.d0 / (self.C_VAL / self.f))
@@ -132,6 +132,7 @@ class AngleOfArrival:
         obj_z = self.m.options.OBJFCNVAL
         rv = self.RV[0]
         print("objective function value {value}".format(value=obj_z))
+        print("rv value "+str(rv))
         return rv
     
     '''
@@ -151,5 +152,5 @@ class AngleOfArrival:
         m_lon_pred = (self.lon - self.tower_location[1]) * d_pred / d_act + self.tower_location[1]
         return [m_lat_pred, m_lon_pred]
     
-solver = AngleOfArrival(rsrp=-92, lat=-6.30218, lon=106.72379, cid=21711)
+solver = AngleOfArrival(rsrp=-92, lat=-6.30218, lon=106.72379, cid=4273)
 print(solver.predict())
